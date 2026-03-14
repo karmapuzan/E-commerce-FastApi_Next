@@ -2,7 +2,7 @@ from sqlalchemy import Column, ForeignKey, String, DateTime, func
 from sqlalchemy.orm import relationship, Mapped, mapped_column
 import uuid
 
-from db.database import Base
+from src.db.database import Base
 
 
 class Category(Base):

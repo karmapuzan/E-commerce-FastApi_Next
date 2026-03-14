@@ -3,7 +3,7 @@ from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import relationship
 
-from db.database import Base
+from src.db.database import Base
 
 
 class Section(Base):

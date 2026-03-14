@@ -1,5 +1,5 @@
 import uuid, enum
-from db.database import Base
+from src.db.database import Base
 from sqlalchemy import Column, ForeignKey, String, DateTime, Float, func, Enum
 from sqlalchemy.orm import relationship
 

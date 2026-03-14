@@ -14,7 +14,7 @@ class UserCreate(UserBase):
 
 
 class UserResponse(UserBase):
-    id: str
+    uid: str
     first_name: str
     last_name: str
     is_active: bool

@@ -2,7 +2,7 @@ import uuid
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
-from db.database import Base
+from src.db.database import Base
 
 
 class Page(Base):
