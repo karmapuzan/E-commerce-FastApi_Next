@@ -12,7 +12,7 @@ class ProductStatus(enum.Enum):
 class Product(Base):
     __tablename__ = "products"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,

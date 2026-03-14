@@ -9,7 +9,7 @@ from src.db.database import Base
 class Section(Base):
     __tablename__ = "sections"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,

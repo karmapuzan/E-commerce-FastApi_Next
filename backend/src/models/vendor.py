@@ -13,14 +13,14 @@ from sqlalchemy.orm import relationship
 class Vendor(Base):
     __tablename__ = "vendors"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,
         default=lambda: str(uuid.uuid4()),
         unique=True,
     )
-    user_id = Column(String, ForeignKey("users.id"), nullable=False)
+    user_id = Column(String, ForeignKey("users.uid"), nullable=False)
     store_name = Column(String(150), nullable=False)
     store_slug = Column(String(150), nullable=False)
     description = Column(String, nullable=False)

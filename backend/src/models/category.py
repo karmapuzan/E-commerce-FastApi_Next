@@ -8,7 +8,7 @@ from src.db.database import Base
 class Category(Base):
     __tablename__ = "category"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,
@@ -21,7 +21,7 @@ class Category(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     parent: Mapped["Category"] = relationship(
-        "Category", remote_side=[uid], back_populates="children"
+        "Category", remote_side=[id], back_populates="children"
     )
     children: Mapped[list["Category"]] = relationship(
         "Category", back_populates="parent"

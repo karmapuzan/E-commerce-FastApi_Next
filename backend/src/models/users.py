@@ -12,7 +12,7 @@ class UserRole(enum.Enum):
 class User(Base):
     __tablename__ = "users"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,

@@ -1,8 +1,13 @@
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
+from src.routes.public import category, page
 from src.routes.public import auth
 from src.db.database import create_table
 from src.core.config import settings
+from src.routes.protected import (
+    page as protected_page,
+    category as protected_category,
+)
 
 create_table()
 
@@ -22,11 +27,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Public route
+# Public Routes
 app.include_router(
     auth.router,
     prefix=f"{settings.API_PREFIX}",
 )
+app.include_router(page.router, prefix=f"{settings.API_PREFIX}")
+app.include_router(category.router, prefix=f"{settings.API_PREFIX}")
+
+# Protected Routes
+app.include_router(protected_page.router, prefix=f"{settings.API_PREFIX}")
+app.include_router(protected_category.router, prefix=f"{settings.API_PREFIX}")
 
 
 @app.get("/")

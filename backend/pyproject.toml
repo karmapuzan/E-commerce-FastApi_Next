@@ -16,4 +16,5 @@ dependencies = [
     "uvicorn>=0.41.0",
     "python-multipart>=0.0.22",
     "argon2-cffi>=25.1.0",
+    "python-slugify>=8.0.4",
 ]

@@ -8,7 +8,7 @@ from src.db.database import Base
 class Page(Base):
     __tablename__ = "pages"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         default=lambda: str(uuid.uuid4()),

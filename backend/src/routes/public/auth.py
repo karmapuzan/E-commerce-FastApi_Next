@@ -38,11 +38,11 @@ def login_for_access_token(
     refresh_token_expires = timedelta(minutes=settings.REFRESH_TOKEN_EXPIRE_MINUTES)
 
     access_token = create_access_token(
-        data={"sub": user.uid},
+        data={"sub": user.id},
         expires_delta=access_token_expires,
     )
     refresh_token = create_access_token(
-        data={"sub": user.uid},
+        data={"sub": user.id},
         expires_delta=refresh_token_expires,
     )
 

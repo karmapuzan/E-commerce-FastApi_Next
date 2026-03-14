@@ -7,7 +7,7 @@ from sqlalchemy.orm import relationship
 class ProductImage(Base):
     __tablename__ = "product_images"
 
-    uid = Column(
+    id = Column(
         String,
         primary_key=True,
         index=True,
