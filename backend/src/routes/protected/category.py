@@ -4,7 +4,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import ValidationError
 from slugify import slugify
-
+from sqlalchemy.orm import Session
 from src.core.auth import get_current_active_user
 from src.db.database import get_db
 from src.models.category import Category as CategoryModel
@@ -25,7 +25,7 @@ router = APIRouter(
 @router.post("/category")
 def create_category(
     category: Category,
-    db: Annotated[CategoryModel, Depends(get_db)],
+    db: Annotated[Session, Depends(get_db)],
 ):
 
     has_category = (

@@ -1,6 +1,7 @@
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
 from src.models import page
 from src.models.category import Category as CategoryModel
 from src.db.database import get_db
@@ -11,7 +12,7 @@ router = APIRouter(prefix="", tags=["category"])
 
 @router.get("/category", response_model=CategoryListResponse)
 def get_category_content(
-    db: Annotated[CategoryModel, Depends(get_db)],
+    db: Annotated[Session, Depends(get_db)],
     page: int = 1,
     page_size: int = 10,
 ):

@@ -27,7 +27,6 @@ router = APIRouter(
 def create_page(
     title: str,
     db: Annotated[Session, Depends(get_db)],
-    current_user: Annotated[UserModel, Depends(get_current_active_user)],
 ):
     page = db.query(PageModel).filter(PageModel.title == title).first()
     if page:
@@ -50,7 +49,6 @@ def create_page(
 def create_hero_banner(
     payload: PageWithSections,
     db: Annotated[Session, Depends(get_db)],
-    current_user: Annotated[UserModel, Depends(get_current_active_user)],
 ):
 
     page = db.query(PageModel).filter(PageModel.id == payload.page_data.id).first()
